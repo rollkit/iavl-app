@@ -3,6 +3,8 @@ package iavlapp
 import (
 	"bytes"
 
+	"os"
+
 	"cosmossdk.io/log"
 	"cosmossdk.io/store/iavl"
 	"cosmossdk.io/store/metrics"
@@ -20,7 +22,8 @@ type Application struct {
 	appHash []byte
 }
 
-func NewMerkleApp(log log.Logger) Application {
+func NewMerkleApp() Application {
+	log := log.NewLogger(os.Stdout)
 	db := cmdb.NewMemDB()
 	key := storetypes.NewKVStoreKey("data")
 	commitID := storetypes.CommitID{

@@ -1,10 +1,8 @@
 package iavlapp
 
 import (
-	"os"
 	"testing"
 
-	"cosmossdk.io/log"
 	storetypes "cosmossdk.io/store/types"
 	"github.com/cometbft/cometbft/abci/types"
 	"github.com/cometbft/cometbft/crypto/merkle"
@@ -13,8 +11,7 @@ import (
 
 func TestKvApp(t *testing.T) {
 	require := require.New(t)
-	testLogger := log.NewLogger(os.Stdout)
-	app := NewMerkleApp(testLogger)
+	app := NewMerkleApp()
 	app.DeliverTx(types.RequestDeliverTx{
 		Tx: []byte("cnode=cool"),
 	})
