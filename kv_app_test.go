@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"cosmossdk.io/log"
-	"github.com/tendermint/tendermint/abci/types"
+	"github.com/cometbft/cometbft/abci/types"
 )
 
 func TestKvApp(t *testing.T) {
@@ -20,4 +20,10 @@ func TestKvApp(t *testing.T) {
 	app.Commit()
 	fmt.Println("apphash")
 	fmt.Println(app.appHash)
+	response := app.Query(types.RequestQuery{
+		Path:  "/key",
+		Data:  []byte("cnode"),
+		Prove: true,
+	})
+	fmt.Println(response)
 }

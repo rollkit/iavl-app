@@ -7,9 +7,9 @@ import (
 	"cosmossdk.io/store/iavl"
 	"cosmossdk.io/store/metrics"
 	storetypes "cosmossdk.io/store/types"
+	"github.com/cometbft/cometbft/abci/example/code"
+	"github.com/cometbft/cometbft/abci/types"
 	cmdb "github.com/cosmos/cosmos-db"
-	"github.com/tendermint/tendermint/abci/example/code"
-	"github.com/tendermint/tendermint/abci/types"
 )
 
 var _ types.Application = (*Application)(nil)
